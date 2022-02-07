@@ -14,9 +14,9 @@ class App {
         
         window.addEventListener('resize', this.resize.bind(this), false);
         this.resize();
-
-        this.ball = new Ball(this.stageWidth, this.stageHeight, 50, 12);
         this.block = new Block(700, 30, 300, 450);
+        this.ball = new Ball(this.stageWidth, this.stageHeight, 50, 6);
+        
         window.requestAnimationFrame(this.animate.bind(this));
     }
     
@@ -38,9 +38,9 @@ canvas.width에 튕기게 하면 공이 밖으로 삐져나가버린다
         window.requestAnimationFrame(this.animate.bind(this));
 
         this.ctx.clearRect(0,0,this.stageWidth, this.stageHeight); /*이전 프레임 지우기 */
-
-        this.ball.draw(this.ctx, this.stageWidth, this.stageHeight);
         this.block.draw(this.ctx);
+        this.ball.draw(this.ctx, this.stageWidth, this.stageHeight, this.block);
+        
     }
 }
 window.onload = () => {
