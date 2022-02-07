@@ -1,3 +1,10 @@
+import {
+    Ball
+} from './ball.js';
+import {
+    Block
+} from './block.js';
+
 class App {
     constructor() {
         this.canvas = document.createElement('canvas');
@@ -8,6 +15,8 @@ class App {
         window.addEventListener('resize', this.resize.bind(this), false);
         this.resize();
 
+        this.ball = new Ball(this.stageWidth, this.stageHeight, 50, 12);
+        this.block = new Block(700, 30, 300, 450);
         window.requestAnimationFrame(this.animate.bind(this));
     }
     
@@ -23,6 +32,15 @@ canvas.width에 튕기게 하면 공이 밖으로 삐져나가버린다
         this.canvas.height = this.stageHeight * 2;
         this.ctx.scale(2,2); /*하지만 ctx로 그린 공의 크기가 너무 작아졌다. 
         캔버스의 크기가 커진만큼 ctx의 크기도 키워줘야 처음에 의도했던 비율대로 그림이 그려지게 된다*/ 
+    }
+
+    animate(t) {
+        window.requestAnimationFrame(this.animate.bind(this));
+
+        this.ctx.clearRect(0,0,this.stageWidth, this.stageHeight); /*이전 프레임 지우기 */
+
+        this.ball.draw(this.ctx, this.stageWidth, this.stageHeight);
+        this.block.draw(this.ctx);
     }
 }
 window.onload = () => {
