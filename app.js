@@ -35,9 +35,11 @@ canvas.width에 튕기게 하면 공이 밖으로 삐져나가버린다
     }
 
     animate(t) {
-        window.requestAnimationFrame(this.animate.bind(this));
-
+        window.requestAnimationFrame(this.animate.bind(this));/*bind() 메서드는 this가 bind에 제공된 값으로 설정된 새로운 함수를 생성한다. 
+        이 새로운 함수의 인자값을 순서대로 지정할 수도 있다. */
+        //requestAnimationFrame 는 60fps을 지원합니다
         this.ctx.clearRect(0,0,this.stageWidth, this.stageHeight); /*이전 프레임 지우기 */
+        //ctx.clearRect(x, y, width, height); 지금은 Erasing the whole canvas
         this.block.draw(this.ctx);
         this.ball.draw(this.ctx, this.stageWidth, this.stageHeight, this.block);
         

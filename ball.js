@@ -20,6 +20,7 @@ export class Ball {
         ctx.fillStyle = '#fdd700';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
+        // ctx.arc(x, y, radius, startAngle 지금은 0도, endAngle 지금은 360도[, counterclockwise]);
         ctx.fill();
     }
 
