@@ -1,0 +1,44 @@
+/*
+전체 선택자(the Universal Selector)는 HTML의 모든 요소를 선택하는 기능입니다.
+태그, 속성명, 속성값, 클래스, 아이디 등 모든 요소가 선택됩니다.
+
+전체 선택자를 나타내는 기호는 * 입니다.
+* 모양의 기호는 CSS 뿐만 아니라 다른 프로그래밍 언어에서도 대부분 전체를 나타내는 경우가 많으므로 알고 있으면 유용합니다.
+*/
+
+* {
+  user-select: none;
+  /* 텍스트나 이미지를 선택할 수 있게 하는 여부를 제어 */
+  -ms-user-select: none;
+  /*
+    -webkit- : 구글, 사파리 브라우저에 적용
+
+    -moz- : 파이어폭스 브라우저에 적용
+
+    -ms- : 익스플로러에 적용, 보통 생략합니다.
+
+    -o- : 오페라 브라우저에 적용
+*/
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  /* 링크를 터치했을때 나오는 기본 영역의 색상을 제어 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #161e38;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
